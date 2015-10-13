@@ -1,0 +1,26 @@
+{
+  "name": "your-app",
+  "version": "0.0.1",
+  "authors": [
+    "Pompeu <itacir@hotmail.com>"
+  ],
+  "description": "electron app",
+  "main": "app.js",
+  "keywords": [
+    "videos"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "~0.11.2",
+    "ui-router": "~0.2.15",
+    "angular-messages": "~1.4.7",
+    "angular-jwt": "~0.0.9"
+  }
+}

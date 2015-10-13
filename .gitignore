@@ -1,4 +1,4 @@
 bower_components/*
 node_modules/*
-my_app*
+myapp-*
 *.swp

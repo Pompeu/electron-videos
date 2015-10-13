@@ -1,0 +1,26 @@
+<md-dialog aria-label="video"  ng-cloak>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>{{dc.video.title}}</h2>
+      <span flex></span>
+      <md-button aria-label="close video" class="md-icon-button" ng-click="dc.cancel()">
+        <md-icon md-svg-src="./app/img/icons/ic_close_48px.svg"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content style="max-width:800px;max-height:600px; ">
+    <div>
+			<h2>{{dc.video.title}}</h2>
+    <span flex></span>
+		<div>
+			<video-html url=dc.video.url></video-html>
+		</div>
+    <md-button ng-click="dc.cancel()" style="margin-right:20px;" >
+			Sair
+    </md-button>
+		<md-input-container>
+      <label>comenet</label>
+      <input ng-model="dc.coment">
+    </md-input-container>
+  </div>
+</md-dialog>

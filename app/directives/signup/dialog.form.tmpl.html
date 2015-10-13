@@ -1,0 +1,33 @@
+<div aria-label="Sing In Users">
+  <md-content>
+  <md-subheader class="md-primary md-sticky-no-effect">      
+      <h1>Cadastrar</h1>    
+  </md-subheader> 
+  <md-content class="md-primary md-sticky-no-effect">
+    <form ng-submit="su.criar(su.user)" name="loginform">
+      <md-input-container md-no-float>
+        <input md-maxlength="20" type="text"
+        placeholder="Firth Name" required  ng-model="su.user.name">
+      </md-input-container>
+
+      <md-input-container md-no-float>
+        <input md-maxlength="20" type="text"
+        placeholder="Last Name" required  ng-model="su.user.sname">
+      </md-input-container>
+
+      <md-input-container md-no-float>
+        <input md-maxlength="30" type="email" 
+        placeholder="Email"required  ng-model="su.user.email">      
+      </md-input-container>
+
+      <md-input-container md-no-float>       
+        <input md-maxlength="8" type="password"
+        placeholder="Password" required  ng-model="su.user.password">
+      </md-input-container>
+
+      <md-button class="md-raised md-primary">Sing UP</md-button>
+      <md-button class="md-raised md-warn" ng-click="su.cancel()">Cancel</md-button>
+    </form>
+    <md-content>
+  </md-content>
+</div>
