@@ -23,12 +23,13 @@ app.on('window-all-closed', () => {
 app.on('ready', () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600});
+  mainWindow.setMenu(null);
 	mainWindow.center();
   // and load the index.html of the app.
   mainWindow.loadUrl('file://' + __dirname + '/index.html');
 
  // Open the DevTools.
-		mainWindow.openDevTools();
+ //	mainWindow.openDevTools();
 	
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {

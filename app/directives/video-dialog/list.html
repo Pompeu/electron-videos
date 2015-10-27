@@ -1,30 +1,26 @@
-<md-list ng-cloak>
-  <md-subheader class="md-no-sticky">Lista De Videos</md-subheader>
+<div ng-cloak>
+  <md-subheader class="md-no-sticky">Lista De Videos
+    <md-button ng-click="vm.sair()" class="md-fab" aria-label="Sair">
+      <md-icon md-svg-src="./app/img/icons/ic_close_48px.svg"></md-icon>
+      <md-tooltip>
+        SAIR
+      </md-tooltip>
+    </md-button> 
+  </md-subheader>
   <md-list-item ng-click="vm.select($event, video)" ng-repeat="video in vm.videos">
     <p> Titulo : {{ video.title }} </p>
   </md-list-item>
   <md-divider></md-divider>
-	<div>
-	 <md-toolbar>
-			<div class="md-toolbar-tools">
-				<h2>{{vm.video.title}}</h2>
-				<span flex></span>
-			</div>
-		</md-toolbar>
-	</div>
-	<div ng-if="vm.video" >  
-			<h2>{{vm.video.title}}</h2>
-    <span flex></span>
-		<div>
-			<video class='video' controls ng-src="{{vm.video.url}}"></video>
-		</div>
-		<md-input-container>
-      <label>Adicionar Comentarios</label>
-      <input ng-keydown='vm.addComent($event,vm.coment)' ng-model="vm.coment">
-    </md-input-container>
-  </div>
-	<md-list-item ng-repeat="c in vm.coments track by $index">
-		<span>{{c.user}}  disse : {{ c.coment}}</span>
-		<md-divider></md-divider>
-	</md-list-item>
-</md-list>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+          <h2>{{vm.video.title}}</h2>
+          <span flex></span>
+        </div>
+     </md-toolbar>
+     <div ng-if="vm.video" layout="row" layout-padding>  
+          <video flex="65" controls ng-src="{{vm.video.url}}" layout-padding></video>
+          <md-content flex="33" class="md-whiteframe-24dp" layout-padding>
+            <coments-dir />
+          </md-content>
+     </div>
+</div>

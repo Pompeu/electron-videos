@@ -3,11 +3,11 @@
 	angular.module('app')
 		.controller('MainCtrl', MainCtrl);
 
-		MainCtrl.$inject = ['login','$rootScope'];
+		MainCtrl.$inject = ['login','$window'];
 
-		function MainCtrl (login, $rootScope) {
+		function MainCtrl (login, $window) {
 			let vm = this;
-			vm.trylogin = null;
+			vm.trylogin = !!$window.localStorage.getItem("token");
 			vm.progress = false;
 			vm.msg = null;
 
@@ -18,7 +18,7 @@
 
 		  let loginSucess = result => {
 				if(result.status) {
-					$rootScope.user = result.result;
+          $window.localStorage.setItem("token",JSON.stringify(result.result.id_token));
 					vm.trylogin = true;
 					vm.msg = null;
 				}else {

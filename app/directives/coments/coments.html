@@ -1,0 +1,18 @@
+<div layout="column" ng-cloak>
+  <form name="comentForm">
+    <md-input-container>
+      <label>Adicionar Comentarios</label>
+      <input md-minlength="5" md-maxlength="20" required 
+        name="coment" ng-model="cm.coment">
+   </md-input-container>
+   <md-input-container>
+      <md-button  ng-disabled="cm.coment.length <= 3"  class="md-raised md-primary" ng-click='cm.addComent(cm.coment)' > comentar </md-button> 
+   </md-input-container>
+  </form>
+  <md-content style="height:350px;">
+    <div ng-repeat="c in cm.coments track by $index">
+        <p>{{c.user}} disse : {{ c.coment}}</p>
+        <md-divider></md-divider>
+    </div>
+  </md-content>
+</div>

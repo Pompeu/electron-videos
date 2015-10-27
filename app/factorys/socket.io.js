@@ -2,30 +2,32 @@
 	'use strict';
 
 	angular.module('app')
-		.factory('socketio', socketio);
+		.factory('socket', socket);
 
-		socketio.$inject =['$rootScope'];
+		socket.$inject =['$rootScope'];
 
-		function socketio () {
-			let socket = io.socket("http://localhost:6000/");
+		function socket ($rootScope) {
+
+			let socket = io("https://stream-videos.herokuapp.com/");
 
 			let service = {
 				on : on,
 				emit : emit
-			}
+			};
 
 			return service;
 		
 			function on (ev, cb) {
-				socket.on(ev,(msg) => {
-					$rootScope.$apply(() => {
+				socket.on(ev, function() {
+          let msg = arguments;
+					$rootScope.$apply(function () {
 						cb.apply(socket, msg);
 					});	
 				});	
 			}
 
 			function emit (ev,data , cb ) {
-				socket.emit(ev, data, (msg) => {
+				socket.emit(ev, data, msg => {
 					$rootScope.$apply(() => {
 						if(cb){
 							cb.apply(socket,msg);
