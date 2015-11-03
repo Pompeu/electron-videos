@@ -22,10 +22,19 @@
       let user = jwtHelper.decodeToken(token);
       cm.coments = [];
       cm.coment = '';
+      /* 
+        metodo socket on escuta um evento chamado 'send:message'
+        sempre que existe um evento novo ele pega o argument
+        que e um msg, e empilha na lista de comenetaios
+      */
       socket.on("send:message", msg =>  {
           cm.coments.push(msg);
       });
-
+      /*
+        a função addComent emit um evento para servidor de websocktes
+        "send:message", passando o nome do usuario logado e o comentario,
+        esse evento sera emitido a todos usuario logado pelo servidor.
+      */
       cm.addComent = () => {
         if (cm.coment.length >= 3 && cm.coment.length <= 20){
           socket.emit("send:message", {

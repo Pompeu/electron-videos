@@ -13,7 +13,9 @@
 			};
 
 			return service;
-
+      /*
+        fazendo login entre o cliente desktop e a rede de conhecimentos
+      */
 			function login (user) {
 				let url = 'http://redeconhecimentos.herokuapp.com/api/login';
 				return $http.post(url,user).then(function success(data){
